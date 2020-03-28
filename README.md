@@ -1,20 +1,20 @@
 # PickPipe
-**PackPipe意在将dpkg包管理器进行简化**
+**PackPipe意在将Termux中的dpkg包管理器进行简化**
 
 ## 安装
 **下载git:**
-`<pkg in git>`
+`pkg in git`
 
 **用git来将PackPipe的全部文件clone下来:**
-`<git clone https://github.com/EdgeS5352/PickPipe>`
+`git clone https://github.com/EdgeS5352/PickPipe`
 
 **cd进入到clone好的PickPipe所属目录中:**
-`<cd PickPipe/>`
+`cd PickPipe/`
 
 **找到安装脚本"set-up.sh"，用bash运行:**
-`<bash set-up.sh>`
+`bash set-up.sh`
 
--**至此，PackPipe即安装完毕**
+**至此，PackPipe即安装完毕**
 
 ### Usage：pipe [命令] [参数]
 命令: 
