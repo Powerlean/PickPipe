@@ -1,5 +1,5 @@
 # PickPipe
-***PackPipe意在将dpkg包管理器进行简化
+**PackPipe意在将dpkg包管理器进行简化**
 
 ## Usage：pipe [命令] [参数]
 命令: 
