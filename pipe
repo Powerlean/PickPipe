@@ -5,8 +5,7 @@
 #GitHub:EdgeS5352
 if [ $1 == d ]; then #安装
  echo "* 默认使用apt查找软件包"
- echo "* 正在调用nohup"
- nohup apt install $2 -y
+ apt install $2 -y1 >/dev/null 2>&1
    if [ $? == 100 ]; then
      echo "软件包$2不存在或未被该镜像源收录"
    elif [ $? == 2 ]; then
@@ -20,8 +19,7 @@ if [ $1 == d ]; then #安装
   read -p "您确定要移除软件包$2吗? [Y/n] " ask
   if [ "$ask" == Y -o "$ask" == y ]; then
     echo "* 默认使用apt移除软件包"
-    echo "* 正在调用nohup"
-    nohup apt remove $2 -y
+    apt remove $2 -y 1>/dev/null 2>&1
     if [ "$?" == 0 -o "$?" == 1 ]; then
       echo "移除完成"
     else
@@ -36,8 +34,7 @@ if [ $1 == d ]; then #安装
   fi
 elif [ $1 == Uy ]; then #更新
   echo "* 默认使用apt更新软件包"
-  echo "* 正在调用nohup"
-  nohup apt update -y
+  apt update -y 1>/dev/null 2>&1
   if [ $? == 0 ]; then
     echo "已就绪"
   else  
@@ -45,8 +42,7 @@ elif [ $1 == Uy ]; then #更新
   fi
 elif [ $1 == Ud ]; then #升级
   echo "* 默认使用apt升级软件包"
-  echo "* 正在调用nohup"
-  nohup apt upgrade -y
+  apt upgrade -y 1>/dev/null 2>&1
   if [ $? == 0 ]; then
     echo "升级完成"
   else
@@ -55,7 +51,7 @@ elif [ $1 == Ud ]; then #升级
 elif [ $1 == s ]; then #搜索
   apt search $2
 elif [ $1 == h ]; then #帮助
-  echo "PackPipe   ver1.4 for termux"
+  echo "PackPipe   ver1.5 for termux"
   echo "Usage：pipe [命令] [参数]"
   echo ""
   echo "PackPipe意在将臃肿的dpkg包管理器进行简化"
