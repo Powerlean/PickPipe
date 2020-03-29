@@ -66,7 +66,7 @@ elif [ $1 == h ]; then #帮助
   echo ""
   echo "当前主镜像源:"
   head -n 2 $PREFIX/etc/apt/sources.list
-else
-  echo "未被定义的命令，运行pipe h获取帮助"
+else #无效输入
+  echo "未被定义的命令，运行pipe h来获取帮助"
   exit 1
 fi
