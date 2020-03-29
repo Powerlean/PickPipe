@@ -26,7 +26,8 @@
 - Uy   更新软件包
 - Ud   升级软件包
 
-* 作者是个菜鸟，dalao们莫要嘲笑，或者...轻点?
+* 作者是个菜鸟，dalao们莫来嘲笑，或者...轻点?
 
 **欢迎加群讨论:902795006(QQ)**
 * 或者你也可以通过我的[博客](edges5352.github.io)来联系我
+* 若有需要，你可以选择查看[源代码](https://github.com/EdgeS5352/PickPipe/blob/master/pipe)
