@@ -4,21 +4,14 @@
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
 if [ x"$1" = x ]; then
-  echo "PickPipe   ver1.7.4 for termux"
-  echo "Usage：pipe [命令] [参数]"
+  echo "  ____  _      _"
+  echo " |  _ \(_) ___| | __"
+  echo " | |_) | |/ __| |/ /"
+  echo " |  __/| | (__|   <"
+  echo " |_|   |_|\___|_|\_\)"
   echo ""
-  echo "PickPipe意在将臃肿的dpkg包管理器进行简化"
-  echo ""
-  echo "命令:"
-  echo "d    安装软件包"
-  echo "r    移除软件包"
-  echo "s    查找软件包"
-  echo "h    命令及参数"
-  echo "Uy   更新软件包"
-  echo "Ud   升级软件包"
-  echo ""
-  echo "当前主镜像源:"
-  head -n 2 $PREFIX/etc/apt/sources.list
+  echo "Ver1.7.8  Code by Solaris"
+  echo "尝试终端运行pipe h来获取更多"
 elif [ $1 == d ]; then #安装
   if [ x"$2" = x ]; then
     echo "请指定一个参数"
@@ -83,7 +76,7 @@ elif [ $1 == s ]; then #搜索
     apt search $2
   fi
 elif [ $1 == h ]; then #帮助
-  echo "PickPipe   ver1.7.4 for termux"
+  echo "PickPipe   ver1.7.8 for termux"
   echo "Usage：pipe [命令] [参数]"
   echo ""
   echo "PickPipe意在将臃肿的dpkg包管理器进行简化"
