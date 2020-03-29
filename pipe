@@ -4,7 +4,7 @@
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
 if [ $1 == d ]; then #安装
- echo "* 默认使用apt查找软件包"
+ echo "* 默认使用dpkg查找软件包"
  apt install $2 -y 1>/dev/null 2>&1
    if [ $? == 100 ]; then
      echo "软件包$2不存在或未被该镜像源收录"
@@ -18,7 +18,7 @@ if [ $1 == d ]; then #安装
  elif [ $1 == r ]; then #移除
   read -p "您确定要移除软件包$2吗? [Y/n] " ask
   if [ "$ask" == Y -o "$ask" == y ]; then
-    echo "* 默认使用apt移除软件包"
+    echo "* 默认使用dpkg移除软件包"
     apt remove $2 -y 1>/dev/null 2>&1
     if [ "$?" == 0 -o "$?" == 1 ]; then
       echo "移除完成"
@@ -33,7 +33,7 @@ if [ $1 == d ]; then #安装
     exit 1
   fi
 elif [ $1 == Uy ]; then #更新
-  echo "* 默认使用apt更新软件包"
+  echo "* 默认使用dpkg更新软件包"
   apt update -y 1>/dev/null 2>&1
   if [ $? == 0 ]; then
     echo "已就绪"
@@ -41,7 +41,7 @@ elif [ $1 == Uy ]; then #更新
     echo "遇到不明原因错误:$?"
   fi
 elif [ $1 == Ud ]; then #升级
-  echo "* 默认使用apt升级软件包"
+  echo "* 默认使用dpkg升级软件包"
   apt upgrade -y 1>/dev/null 2>&1
   if [ $? == 0 ]; then
     echo "升级完成"
@@ -51,7 +51,7 @@ elif [ $1 == Ud ]; then #升级
 elif [ $1 == s ]; then #搜索
   apt search $2
 elif [ $1 == h ]; then #帮助
-  echo "PickPipe   ver1.5.2 for termux"
+  echo "PickPipe   ver1.5.4 for termux"
   echo "Usage：pipe [命令] [参数]"
   echo ""
   echo "PickPipe意在将臃肿的dpkg包管理器进行简化"
