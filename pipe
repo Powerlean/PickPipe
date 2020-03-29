@@ -4,7 +4,7 @@
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
 if [ x"$1" = x ]; then
-  echo "PickPipe   ver1.5.4 for termux"
+  echo "PickPipe   ver1.7.4 for termux"
   echo "Usage：pipe [命令] [参数]"
   echo ""
   echo "PickPipe意在将臃肿的dpkg包管理器进行简化"
@@ -83,7 +83,7 @@ elif [ $1 == s ]; then #搜索
     apt search $2
   fi
 elif [ $1 == h ]; then #帮助
-  echo "PickPipe   ver1.5.4 for termux"
+  echo "PickPipe   ver1.7.4 for termux"
   echo "Usage：pipe [命令] [参数]"
   echo ""
   echo "PickPipe意在将臃肿的dpkg包管理器进行简化"
