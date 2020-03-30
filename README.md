@@ -2,7 +2,7 @@
 **PickPipe意在将Termux中的dpkg包管理器进行简化**
 
 ## 安装
-**下载git:**
+**获取git:**
 `pkg in git`
 
 **用git来将PickPipe的全部文件clone下来:**
@@ -16,7 +16,11 @@
 
 **至此，PickPipe安装完毕**
 
-### Usage：pipe [命令] [参数]
+### 快速开始
+若你已了解PickPipe的用法，并且觉得上述安装方法过于冗杂，那么你可以从这里开始:
+sh -c "$(link -O -)"
+
+#### Usage：pipe [命令] [参数]
 命令: 
 
 - d    安装软件包
