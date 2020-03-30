@@ -3,7 +3,7 @@
 #blog:edges5352.github.io
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
-export ver="1.9.8"
+export ver="2.1.8"
 if [ x"$1" = x ]; then #用户无输入时
   echo "  ____  _      _"
   echo " |  _ \(_) ___| | __"
