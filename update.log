@@ -4,6 +4,6 @@ echo "当前最新版本:$var"
 if [ "$ver" == "$var" ]; then
   echo "当前为最新版本"  
 else
-  echo -e "\033[31m 你已低于当前最新版本，运行pipe p来拉取最新版本 \033[0m"
+  echo "你已低于当前最新版本，运行pipe p来拉取最新版本"
 fi
   
