@@ -8,9 +8,10 @@ if [ x"$1" = x ]; then #用户无输入时
   echo " |  _ \(_) ___| | __"
   echo " | |_) | |/ __| |/ /"
   echo " |  __/| | (__|   <"
-  echo " |_|   |_|\___|_|\_\)"
+  echo " |_|   |_|\___|_|\__)"
   echo ""
   echo "Ver1.9.8  Code by Solaris"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/update.log)"
   echo "尝试终端运行pipe h来获取更多"
 elif [ $1 == d ]; then #安装
   if [ x"$2" = x ]; then

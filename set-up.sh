@@ -10,4 +10,4 @@ pipe
 echo "\033[32m * 删除安装包 \033[0m"
 rm -rf set-up.sh
 rm -rf fast-up.sh
-
+rm -rf update.log
