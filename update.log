@@ -1,7 +1,9 @@
-echo "当前最新版本:2.1.8"
-if [ "$ver" == '2.1.8' ]; then
+#!/bin/bash
+var2.1.8
+echo "当前最新版本:$var"
+if [ "$ver" == "$var" ]; then
   echo "当前为最新版本"  
 else
-  echo "\033[31m 你已低于当前最新版本，运行pipe p来拉取最新版本 \033[0m"
+  echo -e "\033[31m 你已低于当前最新版本，运行pipe p来拉取最新版本 \033[0m"
 fi
   

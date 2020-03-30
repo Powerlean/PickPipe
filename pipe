@@ -3,7 +3,7 @@
 #blog:edges5352.github.io
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
-ver="1.9.8"
+export ver="1.9.8"
 if [ x"$1" = x ]; then #用户无输入时
   echo "  ____  _      _"
   echo " |  _ \(_) ___| | __"
@@ -12,7 +12,7 @@ if [ x"$1" = x ]; then #用户无输入时
   echo " |_|   |_|\___|_|\__)"
   echo ""
   echo "Ver$ver  Code by Solaris"
-  sh -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/EdgeS5352/PickPipe/update.log)"
+  bash -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/EdgeS5352/PickPipe/update.log)"
   echo "尝试终端运行pipe h来获取更多"
 elif [ $1 == d ]; then #安装
   if [ x"$2" = x ]; then
