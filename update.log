@@ -1,5 +1,5 @@
 #!/bin/bash
-var2.1.8
+var=2.1.8
 echo "当前最新版本:$var"
 if [ "$ver" == "$var" ]; then
   echo "当前为最新版本"  
