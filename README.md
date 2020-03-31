@@ -11,14 +11,14 @@
 **cd进入到clone好的PickPipe所属目录中:**
 `cd PickPipe/`
 
-**找到安装脚本"set-up.sh"，用bash运行:**
-`bash set-up.sh`
+**找到安装脚本"set-up.sh"，用sh运行:**
+`sh set-up.sh`
 
 **至此，PickPipe安装完毕**
 
 ### 快速开始
 若你已了解PickPipe的用法，并且觉得上述安装方法过于冗杂或太慢，那么你可以从这里开始:
-`sh -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/EdgeS5352/PickPipe/fast-up.sh)"`
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/fast-up.sh)"`
 
 #### Usage：pipe [命令] [参数]
 命令: 
