@@ -3,13 +3,13 @@
 #blog:edges5352.github.io
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
-export ver="2.3.2"
+export ver="2.3.7"
 if [ x"$1" = x ]; then #用户无输入时
-  echo "  ____  _      _"
-  echo " |  _ \(_) ___| | __"
-  echo " | |_) | |/ __| |/ /"
-  echo " |  __/| | (__|   <"
-  echo " |_|   |_|\___|_|\__)"
+  echo -e "\033[36m  ____  _      _ \033[0m"
+  echo -e "\033[36m |  _ \(_) ___| | __ \033[0m"
+  echo -e "\033[36m | |_) | |/ __| |/ / \033[0m"
+  echo -e "\033[36m |  __/| | (__|   < \033[0m"
+  echo -e "\033[36m |_|   |_|\___|_|\__) \033[0m"
   echo ""
   echo "Ver$ver  Code by Solaris"
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/update.log)"
@@ -97,7 +97,7 @@ elif [ $1 == h ]; then #帮助
   head -n 2 $PREFIX/etc/apt/sources.list
 elif [ $1 == p ]; then #拉取
   echo -e "\033[32m * 开始覆盖 \033[0m"
-  bash -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/EdgeS5352/PickPipe/fast-up.sh)"
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/fast-up.sh)"
 elif [ $1 == l ]; then #列出
   apt list
 else #无效输入
