@@ -2,8 +2,8 @@
 var=2.2.0
 echo "当前最新版本:$var"
 if [ "$ver" == "$var" ]; then
-  echo "当前为最新版本"  
+  echo -e "\033[32m 当前为最新版本 \033[0m"
 else
-  echo -e "\033[31m 有新的版本可用，你已低于流行版本，运行pipe p来拉取最新版本 \033[0m"
+  echo -e "\033[31m 你已低于最新版本，运行pipe p来拉取最新版本 \033[0m"
 fi
 #echo ""
