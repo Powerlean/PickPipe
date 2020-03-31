@@ -6,4 +6,4 @@ if [ "$ver" == "$var" ]; then
 else
   echo -e "\033[31m 有新的版本可用，你已低于流行版本，运行pipe p来拉取最新版本 \033[0m"
 fi
-echo "联网测试，texttest，铁憨憨铁憨憨"
+#echo ""
