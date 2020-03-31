@@ -1,5 +1,5 @@
 #!/bin/bash
-var=2.2.0
+var=2.2.2
 echo "当前最新版本:$var"
 if [ "$ver" == "$var" ]; then
   echo -e "\033[32m 当前为最新版本 \033[0m"
