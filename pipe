@@ -3,7 +3,7 @@
 #blog:edges5352.github.io
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
-export ver="2.2.2"
+export ver="2.3.2"
 if [ x"$1" = x ]; then #用户无输入时
   echo "  ____  _      _"
   echo " |  _ \(_) ___| | __"
@@ -89,6 +89,7 @@ elif [ $1 == h ]; then #帮助
   echo "s    查找软件包"
   echo "h    命令及参数"
   echo "p    拉取新版包"
+  echo "l    列出软件包"
   echo "Uy   更新软件包"
   echo "Ud   升级软件包"
   echo ""
@@ -97,6 +98,8 @@ elif [ $1 == h ]; then #帮助
 elif [ $1 == p ]; then #拉取
   echo -e "\033[32m * 开始覆盖 \033[0m"
   bash -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/EdgeS5352/PickPipe/fast-up.sh)"
+elif [ $1 == l ]; then #列出
+  apt list
 else #无效输入
   echo -e "\033[31m 未被定义的命令，运行pipe h来获取帮助 \033[0m"
   exit 1
