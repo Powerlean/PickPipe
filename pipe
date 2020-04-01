@@ -5,6 +5,7 @@
 #GitHub:EdgeS5352
 export ver="2.3.7"
 if [ x"$1" = x ]; then #用户无输入时
+  clear
   echo -e "\033[36m  ____  _      _ \033[0m"
   echo -e "\033[36m |  _ \(_) ___| | __ \033[0m"
   echo -e "\033[36m | |_) | |/ __| |/ / \033[0m"
