@@ -3,7 +3,7 @@
 #blog:edges5352.github.io
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
-export ver="2.3.7"
+export ver="2.3.9"
 if [ x"$1" = x ]; then #用户无输入时
   clear
   echo -e "\033[36m  ____  _      _ \033[0m"
