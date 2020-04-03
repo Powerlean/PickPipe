@@ -1,5 +1,4 @@
 ![](https://i.loli.net/2020/04/03/tyDRXahYni6O4l7.jpg)
-# PickPipe
 **PickPipe意在将Termux中的dpkg包管理器进行简化**
 
 ## 快速开始
