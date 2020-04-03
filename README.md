@@ -1,23 +1,10 @@
 # PickPipe
 **PickPipe意在将Termux中的dpkg包管理器进行简化**
 
-## 安装
-**获取git:**
-`pkg in git`
-
-**用git来将PickPipe的全部文件clone下来:**
-`git clone https://github.com/EdgeS5352/PickPipe`
-
-**cd进入到clone好的PickPipe所属目录中:**
-`cd PickPipe/`
-
-**找到安装脚本"set-up.sh"，用sh运行:**
-`sh set-up.sh`
-
-**至此，PickPipe安装完毕**
-
-### 快速开始
-若你已了解PickPipe的用法，并且觉得上述安装方法过于冗杂或太慢，那么你可以从这里开始:
+## 快速开始
+请先确保你的Termux已经安装curl:
+`pkg in curl`
+置备好了curl，你就可以开始了:
 `bash -c "$(curl -fsSL https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/fast-up.sh)"`
 
 #### Usage：pipe [命令] [参数]
