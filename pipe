@@ -3,7 +3,7 @@
 #blog:edges5352.github.io
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
-export ver="2.3.9"
+export ver="2.4.9"
 if [ x"$1" = x ]; then #用户无输入时
   clear
   echo -e "\033[36m  ____  _      _ \033[0m"
@@ -17,63 +17,63 @@ if [ x"$1" = x ]; then #用户无输入时
   echo "尝试终端运行pipe h来获取更多"
 elif [ $1 == d ]; then #安装
   if [ x"$2" = x ]; then
-    echo -e "\033[31m 请指定一个参数 \033[0m"
+    echo -e "\033[31m X 请指定一个参数 \033[0m"
     exit 1
   else  
-    echo "* 默认使用dpkg查找软件包"
+    echo "↻ 默认使用dpkg查找软件包"
     apt install $2 -y 1>/dev/null 2>&1
   fi
    if [ $? == 100 ]; then
-     echo -e "\033[31m 软件包$2不存在或未被当前软件源收录 \033[0m"
+     echo -e "\033[31m X 软件包$2不存在或未被当前软件源收录 \033[0m"
      exit 1
    elif [ $? == 2 ]; then
-     echo -e "\033[31m 软件包$2已在之前被安装 \033[0m"
+     echo -e "\033[31m X 软件包$2已在之前被安装 \033[0m"
    elif [ "$?" == 0 -o "$?" == 1 ]; then
-     echo "$2安装完成"
+     echo "√ $2安装完成"
    else
-    echo -e "\033[31m 遇到不明原因错误:$? \033[0m"
+    echo -e "\033[31m X 遇到不明原因错误:$? \033[0m"
    fi
  elif [ $1 == r ]; then #移除
   if [ x"$2" = x ]; then
-    echo -e "\033[31m 请指定一个参数 \033[0m"
+    echo -e "\033[31m X 请指定一个参数 \033[0m"
     exit 1
   else
-    read -p "您确定要移除软件包$2吗? [Y/n] " ask
+    read -p "↹ 您确定要移除软件包$2吗? [Y/n] " ask
   fi
     if [ "$ask" == Y -o "$ask" == y ]; then
-    echo "* 默认使用dpkg移除软件包"
+    echo "↻ 默认使用dpkg移除软件包"
     apt remove $2 -y 1>/dev/null 2>&1
     if [ "$?" == 0 -o "$?" == 1 ]; then
-      echo "移除完成"
+      echo "√ 移除完成"
     else
-      echo -e "\033[31m 遇到不明原因错误:$? \033[0m"
+      echo -e "\033[31m X 遇到不明原因错误:$? \033[0m"
     fi
   elif [ "$ask" == N -o "$ask" == n ]; then
-    echo "终止"
+    echo "❚❚终止"
     exit 0
   else 
-    echo -e "\033[31m 无效命令 \033[0m"
+    echo -e "\033[31m X 无效命令 \033[0m"
     exit 1
   fi
 elif [ $1 == Uy ]; then #更新
-  echo "* 默认使用dpkg更新软件包"
+  echo "↻ 默认使用dpkg更新软件包"
   apt update -y 1>/dev/null 2>&1
   if [ $? == 0 ]; then
-    echo "已就绪"
+    echo "❚❚已就绪"
   else  
-    echo -e "\033[31m 遇到不明原因错误:$? \033[0m"
+    echo -e "\033[31m X 遇到不明原因错误:$? \033[0m"
   fi
 elif [ $1 == Ud ]; then #升级
-  echo "* 默认使用dpkg升级软件包"
+  echo "↻ 默认使用dpkg升级软件包"
   apt upgrade -y 1>/dev/null 2>&1
   if [ $? == 0 ]; then
-    echo "升级完成"
+    echo "√ 升级完成"
   else
-    echo -e "\033[31m 遇到不明原因错误:$? \033[0m"
+    echo -e "\033[31m X 遇到不明原因错误:$? \033[0m"
   fi
 elif [ $1 == s ]; then #搜索
   if [ x"$2" = x ]; then
-    echo -e "\033[31m 请指定一个参数 \033[0m"
+    echo -e "\033[31m X 请指定一个参数 \033[0m"
     exit 1
   else
     apt search $2
@@ -97,11 +97,11 @@ elif [ $1 == h ]; then #帮助
   echo "当前主镜像源:"
   head -n 2 $PREFIX/etc/apt/sources.list
 elif [ $1 == p ]; then #拉取
-  echo -e "\033[32m * 开始覆盖 \033[0m"
+  echo -e "\033[32m ↻ 开始覆盖 \033[0m"
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/fast-up.sh)"
 elif [ $1 == l ]; then #列出
   apt list
 else #无效输入
-  echo -e "\033[31m 未被定义的命令，运行pipe h来获取帮助 \033[0m"
+  echo -e "\033[31m X 未被定义的命令，运行pipe h来获取帮助 \033[0m"
   exit 1
 fi
