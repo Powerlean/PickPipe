@@ -3,7 +3,19 @@
 #blog:edges5352.github.io
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
-export ver="2.4.9"
+
+export ver="2.5.9"
+
+function progress {
+b=''
+for ((i=0;$i<=100;i+=2))
+do
+  printf "   │%-50s│%d%%\r" $b $i
+  sleep 0.6
+  b="|$b"
+done
+}
+
 if [ x"$1" = x ]; then #用户无输入时
   clear
   echo -e "\033[36m  ____  _      _ \033[0m"
@@ -20,8 +32,8 @@ elif [ $1 == d ]; then #安装
     echo -e "\033[31m X 请指定一个参数 \033[0m"
     exit 1
   else  
-    echo "↻ 默认使用dpkg查找软件包"
-    apt install $2 -y 1>/dev/null 2>&1
+    echo "↻ 默认使用apt安装软件包"
+    apt install $2 -y 1>/dev/null 2>&1 | progress
   fi
    if [ $? == 100 ]; then
      echo -e "\033[31m X 软件包$2不存在或未被当前软件源收录 \033[0m"
@@ -41,8 +53,8 @@ elif [ $1 == d ]; then #安装
     read -p "↹ 您确定要移除软件包$2吗? [Y/n] " ask
   fi
     if [ "$ask" == Y -o "$ask" == y ]; then
-    echo "↻ 默认使用dpkg移除软件包"
-    apt remove $2 -y 1>/dev/null 2>&1
+    echo "↻ 默认使用apt移除软件包"
+    apt remove $2 -y 1>/dev/null 2>&1 | progress
     if [ "$?" == 0 -o "$?" == 1 ]; then
       echo "√ 移除完成"
     else
@@ -56,16 +68,16 @@ elif [ $1 == d ]; then #安装
     exit 1
   fi
 elif [ $1 == Uy ]; then #更新
-  echo "↻ 默认使用dpkg更新软件包"
-  apt update -y 1>/dev/null 2>&1
+  echo "↻ 默认使用apt更新软件包"
+  apt update -y 1>/dev/null 2>&1 | progress
   if [ $? == 0 ]; then
     echo "❚❚已就绪"
   else  
     echo -e "\033[31m X 遇到不明原因错误:$? \033[0m"
   fi
 elif [ $1 == Ud ]; then #升级
-  echo "↻ 默认使用dpkg升级软件包"
-  apt upgrade -y 1>/dev/null 2>&1
+  echo "↻ 默认使用apt升级软件包"
+  apt upgrade -y 1>/dev/null 2>&1 | progress
   if [ $? == 0 ]; then
     echo "√ 升级完成"
   else
@@ -82,7 +94,7 @@ elif [ $1 == h ]; then #帮助
   echo "PickPipe   ver$ver for termux"
   echo "Usage：pipe [命令] [参数]"
   echo ""
-  echo "PickPipe意在将臃肿的dpkg包管理器进行简化"
+  echo "PickPipe意在将臃肿的apt包管理器进行简化"
   echo ""
   echo "命令:"
   echo "d    安装软件包"
