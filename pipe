@@ -4,7 +4,7 @@
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
 
-export ver="2.6.9"
+export ver="2.7.9"
 
 function progress {
 b=''
@@ -36,14 +36,14 @@ elif [ $1 == d ]; then #安装
     apt install $2 -y 1>/dev/null 2>&1 | progress
   fi
    if [ $? == 100 ]; then
-     echo -e "\033[31m X 软件包$2不存在或未被当前软件源收录 \033[0m"
+     echo -e "\033[41;37m │X│软件包$2不存在或未被当前软件源收录 \033[0m"
      exit 1
    elif [ $? == 2 ]; then
-     echo -e "\033[31m X 软件包$2已在之前被安装 \033[0m"
+     echo -e "\033[41;37m │X│软件包$2已在之前被安装 \033[0m"
    elif [ "$?" == 0 -o "$?" == 1 ]; then
      echo -e "\033[47;30m │√│$2安装完成 \033[0m"
    else
-    echo -e "\033[31m X 遇到不明原因错误:$? \033[0m"
+    echo -e "\033[41;37m │X│遇到不明原因错误:$? \033[0m"
    fi
  elif [ $1 == r ]; then #移除
   if [ x"$2" = x ]; then
@@ -58,7 +58,7 @@ elif [ $1 == d ]; then #安装
     if [ "$?" == 0 -o "$?" == 1 ]; then
       echo -e "\033[47;30m │√│移除完成 \033[0m"
     else
-      echo -e "\033[31m X 遇到不明原因错误:$? \033[0m"
+      echo -e "\033[41;37m │X│遇到不明原因错误:$? \033[0m"
     fi
   elif [ "$ask" == N -o "$ask" == n ]; then
     echo "❚❚终止"
@@ -73,7 +73,7 @@ elif [ $1 == Uy ]; then #更新
   if [ $? == 0 ]; then
     echo -e "\033[47;30m │❚❚│已就绪 \033[0m"
   else  
-    echo -e "\033[31m X 遇到不明原因错误:$? \033[0m"
+    echo -e "\033[41;37m │X│遇到不明原因错误:$? \033[0m"
   fi
 elif [ $1 == Ud ]; then #升级
   echo "↻ 默认使用apt升级软件包"
@@ -81,7 +81,7 @@ elif [ $1 == Ud ]; then #升级
   if [ $? == 0 ]; then
     echo -e "\033[47;30m │√│升级完成 \033[0m"
   else
-    echo -e "\033[31m X 遇到不明原因错误:$? \033[0m"
+    echo -e "\033[41;37m │X│遇到不明原因错误:$? \033[0m"
   fi
 elif [ $1 == s ]; then #搜索
   if [ x"$2" = x ]; then
@@ -110,7 +110,7 @@ elif [ $1 == h ]; then #帮助
   head -n 2 $PREFIX/etc/apt/sources.list
 elif [ $1 == p ]; then #拉取
   echo -e "\033[32m ↻ 开始覆盖 \033[0m"
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/fast-up.sh)"
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/fast-up.sh)" 1>/dev/null 2>&1 | progress
 elif [ $1 == l ]; then #列出
   apt list
 else #无效输入
