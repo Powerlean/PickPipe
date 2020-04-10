@@ -3,7 +3,7 @@
 
 ## 🏁快速开始
 - 请先确保你的Termux已经安装了curl:
-`pkg in curl`
+`pkg i curl`
 - 置备好了curl，你就可以开始了:
 `bash -c "$(curl -fsSL https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/fast-up.sh)"`
 
