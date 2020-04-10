@@ -4,7 +4,7 @@
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
 
-export ver="2.5.9"
+export ver="2.6.9"
 
 function progress {
 b=''
@@ -41,7 +41,7 @@ elif [ $1 == d ]; then #安装
    elif [ $? == 2 ]; then
      echo -e "\033[31m X 软件包$2已在之前被安装 \033[0m"
    elif [ "$?" == 0 -o "$?" == 1 ]; then
-     echo "√ $2安装完成"
+     echo -e "\033[47;30m │√│$2安装完成 \033[0m"
    else
     echo -e "\033[31m X 遇到不明原因错误:$? \033[0m"
    fi
@@ -56,7 +56,7 @@ elif [ $1 == d ]; then #安装
     echo "↻ 默认使用apt移除软件包"
     apt remove $2 -y 1>/dev/null 2>&1 | progress
     if [ "$?" == 0 -o "$?" == 1 ]; then
-      echo "√ 移除完成"
+      echo -e "\033[47;30m │√│移除完成 \033[0m"
     else
       echo -e "\033[31m X 遇到不明原因错误:$? \033[0m"
     fi
@@ -71,7 +71,7 @@ elif [ $1 == Uy ]; then #更新
   echo "↻ 默认使用apt更新软件包"
   apt update -y 1>/dev/null 2>&1 | progress
   if [ $? == 0 ]; then
-    echo "❚❚已就绪"
+    echo -e "\033[47;30m │❚❚│已就绪 \033[0m"
   else  
     echo -e "\033[31m X 遇到不明原因错误:$? \033[0m"
   fi
@@ -79,7 +79,7 @@ elif [ $1 == Ud ]; then #升级
   echo "↻ 默认使用apt升级软件包"
   apt upgrade -y 1>/dev/null 2>&1 | progress
   if [ $? == 0 ]; then
-    echo "√ 升级完成"
+    echo -e "\033[47;30m │√│升级完成 \033[0m"
   else
     echo -e "\033[31m X 遇到不明原因错误:$? \033[0m"
   fi
