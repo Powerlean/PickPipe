@@ -9,7 +9,7 @@
 export PM="apt"
 export ver="2.9.2"
 export mirrors="$PREFIX/etc/apt/sources.list"
-export input="/dev/null"
+export output="/dev/null"
 
 
 #URL变量设定
@@ -60,7 +60,7 @@ elif [ $1 == d ]; then #安装
     exit 1
   else  
     echo "↻ 默认使用$PM安装软件包"
-    $install $2 -y 1>"$input" 2>&1 | progress
+    $install $2 -y 1>"$output" 2>&1 | progress
   fi
    if [ $? == 100 ]; then
      echo -e "\033[41;37m │X│软件包$2不存在或未被当前软件源收录 \033[0m"
@@ -84,7 +84,7 @@ elif [ $1 == d ]; then #安装
   fi
     if [ "$ask" == Y -o "$ask" == y ]; then
     echo "↻ 默认使用$PM移除软件包"
-    $remove $2 -y 1>"$input" 2>&1 | progress
+    $remove $2 -y 1>"$output" 2>&1 | progress
     if [ "$?" == 0 -o "$?" == 1 ]; then
       echo -e "\033[47;30m │√│移除完成 \033[0m"
     else
@@ -102,7 +102,7 @@ elif [ $1 == d ]; then #安装
 
 elif [ $1 == Uy ]; then #更新
   echo "↻ 默认使用$PM更新软件包"
-  $update -y 1>"$input" 2>&1 | progress
+  $update -y 1>"$output" 2>&1 | progress
   if [ $? == 0 ]; then
     echo -e "\033[47;30m │❚❚│已就绪 \033[0m"
   else  
@@ -113,7 +113,7 @@ elif [ $1 == Uy ]; then #更新
 
 elif [ $1 == Ud ]; then #升级
   echo "↻ 默认使用$PM升级软件包"
-  $upgrade -y 1>"$input" 2>&1 | progress
+  $upgrade -y 1>"$output" 2>&1 | progress
   if [ $? == 0 ]; then
     echo -e "\033[47;30m │√│升级完成 \033[0m"
   else
@@ -155,7 +155,7 @@ elif [ $1 == h ]; then #帮助
 
 elif [ $1 == p ]; then #拉取
   echo -e "\033[32m ↻ 正在从$database中拉取软件包 \033[0m"
-  bash -c "$(curl -fsSL $database)" 1>"$input" 2>&1 | progress
+  bash -c "$(curl -fsSL $database)" 1>"$output" 2>&1 | progress
 
 
 
