@@ -39,8 +39,8 @@ done
 }
 
 
-
-if [ x"$1" = x ]; then #用户无输入时
+#用户无输入时
+if [ x"$1" = x ]; then
   clear
   echo -e "\033[36m  ____  _      _      \033[0m"
   echo -e "\033[36m |  _ \(_) ___| | __  \033[0m"
@@ -53,8 +53,8 @@ if [ x"$1" = x ]; then #用户无输入时
   echo "尝试终端运行pipe h来获取更多"
 
 
-
-elif [ $1 == d ]; then #安装
+#安装
+elif [ $1 == d ]; then
   if [ x"$2" = x ]; then
     echo -e "\033[31m X 请指定一个参数 \033[0m"
     exit 1
@@ -74,8 +74,8 @@ elif [ $1 == d ]; then #安装
    fi
  
 
-
- elif [ $1 == r ]; then #移除
+#移除
+ elif [ $1 == r ]; then
   if [ x"$2" = x ]; then
     echo -e "\033[31m X 请指定一个参数 \033[0m"
     exit 1
@@ -99,8 +99,8 @@ elif [ $1 == d ]; then #安装
   fi
 
 
-
-elif [ $1 == Uy ]; then #更新
+#更新
+elif [ $1 == Uy ]; then
   echo "↻ 默认使用$PM更新软件包"
   $update -y 1>"$output" 2>&1 | progress
   if [ $? == 0 ]; then
@@ -110,8 +110,8 @@ elif [ $1 == Uy ]; then #更新
   fi
 
 
-
-elif [ $1 == Ud ]; then #升级
+#升级
+elif [ $1 == Ud ]; then
   echo "↻ 默认使用$PM升级软件包"
   $upgrade -y 1>"$output" 2>&1 | progress
   if [ $? == 0 ]; then
@@ -121,8 +121,8 @@ elif [ $1 == Ud ]; then #升级
   fi
 
 
-
-elif [ $1 == s ]; then #搜索
+#搜索
+elif [ $1 == s ]; then
   if [ x"$2" = x ]; then
     echo -e "\033[31m X 请指定一个参数 \033[0m"
     exit 1
@@ -131,8 +131,8 @@ elif [ $1 == s ]; then #搜索
   fi
 
 
-
-elif [ $1 == h ]; then #帮助
+#帮助
+elif [ $1 == h ]; then
   echo "PickPipe   ver$ver for termux"
   echo "Usage：pipe [命令] [参数]"
   echo ""
@@ -152,19 +152,19 @@ elif [ $1 == h ]; then #帮助
   head -n 2 "$mirrors"
 
 
-
-elif [ $1 == p ]; then #拉取
+#拉取
+elif [ $1 == p ]; then
   echo -e "\033[32m ↻ 正在从$database中拉取软件包 \033[0m"
   bash -c "$(curl -fsSL $database)" 1>"$output" 2>&1 | progress
 
 
+#列出
+elif [ $1 == l ]; then
+  $list
 
-elif [ $1 == l ]; then #列出
-  apt list
 
-
-
-else #无效输入
+#无效
+else
   echo -e "\033[31m X 未被定义的命令，运行pipe h来获取帮助 \033[0m"
   exit 1
 fi
