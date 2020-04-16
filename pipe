@@ -4,12 +4,16 @@
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
 
-export ver="2.8.2"
+
+#变量设定
+export ver="2.9.2"
 export mirrors="$PREFIX/etc/apt/sources.list"
 export input="/dev/null"
+export database="https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/fast-up.sh"
+export log="https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/update.log"
 
 
-
+#progress函数
 function progress {
 b=''
 for ((i=0;$i<=100;i+=2))
@@ -31,7 +35,7 @@ if [ x"$1" = x ]; then #用户无输入时
   echo -e "\033[36m |_|   |_|\___|_|\__) \033[0m"
   echo ""
   echo "Ver$ver  Code by Solaris"
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/update.log)"
+  bash -c "$(curl -fsSL $log)"
   echo "尝试终端运行pipe h来获取更多"
 
 
@@ -137,7 +141,7 @@ elif [ $1 == h ]; then #帮助
 
 elif [ $1 == p ]; then #拉取
   echo -e "\033[32m ↻ 开始覆盖 \033[0m"
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/fast-up.sh)" 1>/dev/null 2>&1 | progress
+  bash -c "$(curl -fsSL $database)" 1>"$input" 2>&1 | progress
 
 
 
