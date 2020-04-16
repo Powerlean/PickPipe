@@ -3,8 +3,9 @@
 #blog:edges5352.github.io
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
-
 export ver="2.8.2"
+
+
 
 function progress {
 b=''
@@ -15,6 +16,8 @@ do
   b="|$b"
 done
 }
+
+
 
 if [ x"$1" = x ]; then #用户无输入时
   clear
