@@ -4,7 +4,7 @@
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
 
-export ver="2.7.9"
+export ver="2.8.2"
 
 function progress {
 b=''
@@ -18,15 +18,18 @@ done
 
 if [ x"$1" = x ]; then #用户无输入时
   clear
-  echo -e "\033[36m  ____  _      _ \033[0m"
-  echo -e "\033[36m |  _ \(_) ___| | __ \033[0m"
-  echo -e "\033[36m | |_) | |/ __| |/ / \033[0m"
-  echo -e "\033[36m |  __/| | (__|   < \033[0m"
+  echo -e "\033[36m  ____  _      _      \033[0m"
+  echo -e "\033[36m |  _ \(_) ___| | __  \033[0m"
+  echo -e "\033[36m | |_) | |/ __| |/ /  \033[0m"
+  echo -e "\033[36m |  __/| | (__|   <   \033[0m"
   echo -e "\033[36m |_|   |_|\___|_|\__) \033[0m"
   echo ""
   echo "Ver$ver  Code by Solaris"
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/update.log)"
   echo "尝试终端运行pipe h来获取更多"
+
+
+
 elif [ $1 == d ]; then #安装
   if [ x"$2" = x ]; then
     echo -e "\033[31m X 请指定一个参数 \033[0m"
@@ -45,6 +48,9 @@ elif [ $1 == d ]; then #安装
    else
     echo -e "\033[41;37m │X│遇到不明原因错误:$? \033[0m"
    fi
+ 
+
+
  elif [ $1 == r ]; then #移除
   if [ x"$2" = x ]; then
     echo -e "\033[31m X 请指定一个参数 \033[0m"
@@ -67,6 +73,9 @@ elif [ $1 == d ]; then #安装
     echo -e "\033[31m X 无效命令 \033[0m"
     exit 1
   fi
+
+
+
 elif [ $1 == Uy ]; then #更新
   echo "↻ 默认使用apt更新软件包"
   apt update -y 1>/dev/null 2>&1 | progress
@@ -75,6 +84,9 @@ elif [ $1 == Uy ]; then #更新
   else  
     echo -e "\033[41;37m │X│遇到不明原因错误:$? \033[0m"
   fi
+
+
+
 elif [ $1 == Ud ]; then #升级
   echo "↻ 默认使用apt升级软件包"
   apt upgrade -y 1>/dev/null 2>&1 | progress
@@ -83,6 +95,9 @@ elif [ $1 == Ud ]; then #升级
   else
     echo -e "\033[41;37m │X│遇到不明原因错误:$? \033[0m"
   fi
+
+
+
 elif [ $1 == s ]; then #搜索
   if [ x"$2" = x ]; then
     echo -e "\033[31m X 请指定一个参数 \033[0m"
@@ -90,6 +105,9 @@ elif [ $1 == s ]; then #搜索
   else
     apt search $2
   fi
+
+
+
 elif [ $1 == h ]; then #帮助
   echo "PickPipe   ver$ver for termux"
   echo "Usage：pipe [命令] [参数]"
@@ -108,11 +126,20 @@ elif [ $1 == h ]; then #帮助
   echo ""
   echo "当前主镜像源:"
   head -n 2 $PREFIX/etc/apt/sources.list
+
+
+
 elif [ $1 == p ]; then #拉取
   echo -e "\033[32m ↻ 开始覆盖 \033[0m"
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/fast-up.sh)" 1>/dev/null 2>&1 | progress
+
+
+
 elif [ $1 == l ]; then #列出
   apt list
+
+
+
 else #无效输入
   echo -e "\033[31m X 未被定义的命令，运行pipe h来获取帮助 \033[0m"
   exit 1
