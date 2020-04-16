@@ -3,7 +3,10 @@
 #blog:edges5352.github.io
 #Email:bluebreeze191.gmail.com
 #GitHub:EdgeS5352
+
 export ver="2.8.2"
+export mirrors="$PREFIX/etc/apt/sources.list"
+export input="/dev/null"
 
 
 
@@ -39,7 +42,7 @@ elif [ $1 == d ]; then #安装
     exit 1
   else  
     echo "↻ 默认使用apt安装软件包"
-    apt install $2 -y 1>/dev/null 2>&1 | progress
+    apt install $2 -y 1>"$input" 2>&1 | progress
   fi
    if [ $? == 100 ]; then
      echo -e "\033[41;37m │X│软件包$2不存在或未被当前软件源收录 \033[0m"
@@ -63,7 +66,7 @@ elif [ $1 == d ]; then #安装
   fi
     if [ "$ask" == Y -o "$ask" == y ]; then
     echo "↻ 默认使用apt移除软件包"
-    apt remove $2 -y 1>/dev/null 2>&1 | progress
+    apt remove $2 -y 1>"$input" 2>&1 | progress
     if [ "$?" == 0 -o "$?" == 1 ]; then
       echo -e "\033[47;30m │√│移除完成 \033[0m"
     else
@@ -81,7 +84,7 @@ elif [ $1 == d ]; then #安装
 
 elif [ $1 == Uy ]; then #更新
   echo "↻ 默认使用apt更新软件包"
-  apt update -y 1>/dev/null 2>&1 | progress
+  apt update -y 1>"$input" 2>&1 | progress
   if [ $? == 0 ]; then
     echo -e "\033[47;30m │❚❚│已就绪 \033[0m"
   else  
@@ -92,7 +95,7 @@ elif [ $1 == Uy ]; then #更新
 
 elif [ $1 == Ud ]; then #升级
   echo "↻ 默认使用apt升级软件包"
-  apt upgrade -y 1>/dev/null 2>&1 | progress
+  apt upgrade -y 1>"$input" 2>&1 | progress
   if [ $? == 0 ]; then
     echo -e "\033[47;30m │√│升级完成 \033[0m"
   else
@@ -128,7 +131,7 @@ elif [ $1 == h ]; then #帮助
   echo "Ud   升级软件包"
   echo ""
   echo "当前主镜像源:"
-  head -n 2 $PREFIX/etc/apt/sources.list
+  head -n 2 "$mirrors"
 
 
 
