@@ -22,5 +22,5 @@
 <del>特此声明:作者是个废物</del>
 
 #### **🏠欢迎加群讨论:902795006(QQ)**
-* 或者你也可以通过我的[博客](edges5352.github.io)来联系我
+* 或者你也可以通过我的[博客](https://EdgeS5352.github.io)来联系我
 * 若有需要，你可以选择查看[源码](https://github.com/EdgeS5352/PickPipe/blob/master/pipe)
