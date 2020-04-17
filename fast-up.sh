@@ -1,5 +1,5 @@
 #!/bin/bash
-export $LI2="↻"
+export LI2="↻"
 echo -e "\033[32m $LI2 移除存在的旧软件包 \033[0m"
 rm -rf $PREFIX/bin/pipe*
 echo -e "\033[32m $LI2 开始安装 \033[0m"
