@@ -27,6 +27,16 @@ export search="apt search"
 export list="apt list"
 
 
+#字符变量
+export EI1="│X│"
+export EI2="X"
+export TI1="│√│"
+export SI="❚❚"
+export SI1="│❚❚│"
+export LI="↻"
+export CI="↹"
+
+
 #progress函数
 function progress {
 b=''
@@ -56,19 +66,20 @@ if [ x"$1" = x ]; then
 #安装
 elif [ $1 == d ]; then
   if [ x"$2" = x ]; then
-    echo -e "\033[31m X 请指定一个参数 \033[0m"
+    echo -e "\033[31m $EI2 请指定一个参数 \033[0m"
     exit 1
   else  
-    echo "↻ 默认使用$PM安装软件包"
+    echo "$LI 默认使用$PM安装软件包"
     $install $2 -y 1>"$output" 2>&1 | progress
   fi
    if [ $? == 100 ]; then
-     echo -e "\033[41;37m │X│软件包$2不存在或未被当前软件源收录 \033[0m"
+     echo -e "\033[41;37m $EI1软件包$2不存在或未被当前软件源收录 \033[0m"
      exit 1
    elif [ $? == 2 ]; then
-     echo -e "\033[41;37m │X│软件包$2已在之前被安装 \033[0m"
-   elif [ "$?" == 0 -o "$?" == 1 ]; then
-     echo -e "\033[47;30m │√│$2安装完成 \033[0m"
+     echo -e "\033[41;37m $EI1软件包$2已在之前被安装 \033[0m"
+   eli
+   f [ "$?" == 0 -o "$?" == 1 ]; then
+     echo -e "\033[47;30m $TI1$2安装完成 \033[0m"
    else
     $error
    fi
@@ -77,34 +88,34 @@ elif [ $1 == d ]; then
 #移除
  elif [ $1 == r ]; then
   if [ x"$2" = x ]; then
-    echo -e "\033[31m X 请指定一个参数 \033[0m"
+    echo -e "\033[31m $EI2 请指定一个参数 \033[0m"
     exit 1
   else
-    read -p "↹ 您确定要移除软件包$2吗? [Y/n] " ask
+    read -p "$CI 您确定要移除软件包$2吗? [Y/n] " ask
   fi
     if [ "$ask" == Y -o "$ask" == y ]; then
-    echo "↻ 默认使用$PM移除软件包"
+    echo "$LI 默认使用$PM移除软件包"
     $remove $2 -y 1>"$output" 2>&1 | progress
     if [ "$?" == 0 -o "$?" == 1 ]; then
-      echo -e "\033[47;30m │√│移除完成 \033[0m"
+      echo -e "\033[47;30m $TI1移除完成 \033[0m"
     else
       $error
     fi
   elif [ "$ask" == N -o "$ask" == n ]; then
-    echo "❚❚终止"
+    echo "$SI终止"
     exit 0
   else 
-    echo -e "\033[31m X 无效命令 \033[0m"
+    echo -e "\033[31m $EI2 无效命令 \033[0m"
     exit 1
   fi
 
 
 #更新
 elif [ $1 == Uy ]; then
-  echo "↻ 默认使用$PM更新软件包"
+  echo "$LI 默认使用$PM更新软件包"
   $update -y 1>"$output" 2>&1 | progress
   if [ $? == 0 ]; then
-    echo -e "\033[47;30m │❚❚│已就绪 \033[0m"
+    echo -e "\033[47;30m $SI1已就绪 \033[0m"
   else  
     $error
   fi
@@ -112,10 +123,10 @@ elif [ $1 == Uy ]; then
 
 #升级
 elif [ $1 == Ud ]; then
-  echo "↻ 默认使用$PM升级软件包"
+  echo "$LI 默认使用$PM升级软件包"
   $upgrade -y 1>"$output" 2>&1 | progress
   if [ $? == 0 ]; then
-    echo -e "\033[47;30m │√│升级完成 \033[0m"
+    echo -e "\033[47;30m $TI1升级完成 \033[0m"
   else
     $error
   fi
@@ -124,7 +135,7 @@ elif [ $1 == Ud ]; then
 #搜索
 elif [ $1 == s ]; then
   if [ x"$2" = x ]; then
-    echo -e "\033[31m X 请指定一个参数 \033[0m"
+    echo -e "\033[31m $EI2 请指定一个参数 \033[0m"
     exit 1
   else
     $search $2
@@ -154,7 +165,7 @@ elif [ $1 == h ]; then
 
 #拉取
 elif [ $1 == p ]; then
-  echo -e "\033[32m ↻ 正在从$database中拉取软件包 \033[0m"
+  echo -e "\033[32m $LI 正在从$database中拉取软件包 \033[0m"
   bash -c "$(curl -fsSL $database)" 1>"$output" 2>&1 | progress
 
 
@@ -165,6 +176,6 @@ elif [ $1 == l ]; then
 
 #无效
 else
-  echo -e "\033[31m X 未被定义的命令，运行pipe h来获取帮助 \033[0m"
+  echo -e "\033[31m $EI2 未被定义的命令，运行pipe h来获取帮助 \033[0m"
   exit 1
 fi
