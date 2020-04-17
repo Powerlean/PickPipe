@@ -1,10 +1,10 @@
 ![](https://i.loli.net/2020/04/03/ja2QiUJsnLe5P86.jpg)
-**PickPipe意在将Termux中的dpkg包管理器进行简化**
+**PickPipe意在将繁杂的Linux包管理器进行简化**
 
 ## 🏁快速开始
-- 请先确保你的Termux已经安装了curl:
+- 请先确保你的Termux已经安装了cURL:
 `pkg i curl`
-- 置备好了curl，你就可以开始了:
+- 置备好cURL，进一步运行安装脚本:
 `bash -c "$(curl -fsSL https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/fast-up.sh)"`
 
 ### 📋Usage：pipe [命令] [参数]
