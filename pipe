@@ -7,7 +7,7 @@
 
 #路径变量设定
 export PM="apt"
-export ver="2.9.2"
+export ver="3.0.2"
 export mirrors="$PREFIX/etc/apt/sources.list"
 export output="/dev/null"
 
@@ -29,7 +29,7 @@ export list="apt list"
 
 #字符变量
 export EI1="│X│"
-export EI2="X"
+export EI2="\033[41;37m X \033[0m"
 export TI1="│√│"
 export SI="❚❚"
 export SI1="│❚❚│"
