@@ -51,6 +51,7 @@ done
 
 #用户无输入时
 if [ x"$1" = x ]; then
+function about { 
   clear
   echo -e "\033[36m  ____  _      _      \033[0m"
   echo -e "\033[36m |  _ \(_) ___| | __  \033[0m"
@@ -61,8 +62,8 @@ if [ x"$1" = x ]; then
   echo "Ver$ver  Code by Solaris"
   bash -c "$(curl -fsSL $log)"
   echo "尝试终端运行pipe h来获取更多"
-
-
+}
+about #于下方可直接引用此函数  
 #安装
 elif [ $1 == d ]; then
   if [ x"$2" = x ]; then
@@ -143,6 +144,7 @@ elif [ $1 == s ]; then
 
 #帮助
 elif [ $1 == h ]; then
+function usage {  
   echo "PickPipe   ver$ver for termux"
   echo "Usage：pipe [命令] [参数]"
   echo ""
@@ -160,6 +162,8 @@ elif [ $1 == h ]; then
   echo ""
   echo "当前主镜像源:"
   head -n 2 "$mirrors"
+}
+usage #于下方可直接引用此函数
 
 
 #拉取
