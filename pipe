@@ -6,8 +6,7 @@
 
 
 #路径变量设定
-export PM="apt"
-export ver="3.0.2"
+export ver="3.1.2"
 export mirrors="$PREFIX/etc/apt/sources.list"
 export output="/dev/null"
 
@@ -27,6 +26,8 @@ export search="apt search"
 export list="apt list"
 
 
+
+
 #字符变量
 export EI1="│X│"
 export EI2="\033[41;37m X \033[0m"
@@ -35,6 +36,46 @@ export SI="❚❚"
 export SI1="│❚❚│"
 export LI="↻"
 export CI="↹"
+
+
+#包管理器名称
+case $install in
+  "apk add")
+export PM="apk"
+;;
+ "pip install")
+export PM="pip"
+;;
+ "pacman -S")
+export PM="pacman"
+;;
+ "brew install")
+export PM="brew"
+;;
+ "pkg install")
+export PM="apt"
+;;
+ "apt install")
+export PM="apt"
+;;
+"apt-get install")
+export PM="apt"
+;;
+"dpkg -i")
+export PM="dpkg"
+;;
+"dnf install")
+export PM="redhat"
+;;
+"yum install")
+export PM="redhat"
+;;
+"rpm -i")
+export PM="synaptic"
+;;
+"*")
+export PM="___"
+esac
 
 
 #progress函数
@@ -64,6 +105,8 @@ function about {
   echo "尝试终端运行pipe h来获取更多"
 }
 about #于下方可直接引用此函数  
+
+
 #安装
 elif [ $1 == d ]; then
   if [ x"$2" = x ]; then
@@ -148,7 +191,7 @@ function usage {
   echo "PickPipe   ver$ver for termux"
   echo "Usage：pipe [命令] [参数]"
   echo ""
-  echo "PickPipe意在将臃肿的$PM包管理器进行简化"
+  echo "PickPipe意在将当前的$PM包管理器进行简化"
   echo ""
   echo "命令:"
   echo "d    安装软件包"
