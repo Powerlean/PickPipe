@@ -6,7 +6,7 @@
 
 
 #路径变量设定
-export ver="3.1.2"
+export ver="3.1.7"
 export mirrors="$PREFIX/etc/apt/sources.list"
 export output="/dev/null"
 
@@ -32,9 +32,9 @@ export list="apt list"
 export EI1="│X│"
 export EI2="\033[41;37m X \033[0m"
 export TI1="│√│"
-export SI="❚❚"
+export SI="\033[47;30m ❚❚ \033[0m"
 export SI1="│❚❚│"
-export LI="↻"
+export LI="\033[47;30m ↻ \033[0m"
 export CI="↹"
 
 
@@ -84,7 +84,7 @@ b=''
 for ((i=0;$i<=100;i+=2))
 do
   printf "   │%-50s│%d%%\r" $b $i
-  sleep 0.6
+  sleep 0."$RANDOM"
   b="|$b"
 done
 }
@@ -113,7 +113,7 @@ elif [ $1 == d ]; then
     echo -e "\033[31m $EI2 请指定一个参数 \033[0m"
     exit 1
   else  
-    echo "$LI 默认使用$PM安装软件包"
+    echo -e "$LI 默认使用$PM安装软件包"
     $install $2 -y 1>"$output" 2>&1 | progress
   fi
    if [ $? == 100 ]; then
@@ -137,7 +137,7 @@ elif [ $1 == d ]; then
     read -p "$CI 您确定要移除软件包$2吗? [Y/n] " ask
   fi
     if [ "$ask" == Y -o "$ask" == y ]; then
-    echo "$LI 默认使用$PM移除软件包"
+    echo -e "$LI 默认使用$PM移除软件包"
     $remove $2 -y 1>"$output" 2>&1 | progress
     if [ "$?" == 0 -o "$?" == 1 ]; then
       echo -e "\033[47;30m $TI1移除完成 \033[0m"
@@ -145,7 +145,7 @@ elif [ $1 == d ]; then
       $error
     fi
   elif [ "$ask" == N -o "$ask" == n ]; then
-    echo "$SI终止"
+    echo -e "$SI 终止"
     exit 0
   else 
     echo -e "\033[31m $EI2 无效命令 \033[0m"
@@ -155,7 +155,7 @@ elif [ $1 == d ]; then
 
 #更新
 elif [ $1 == Uy ]; then
-  echo "$LI 默认使用$PM更新软件包"
+  echo -e "$LI 默认使用$PM更新软件包"
   $update -y 1>"$output" 2>&1 | progress
   if [ $? == 0 ]; then
     echo -e "\033[47;30m $SI1已就绪 \033[0m"
@@ -166,7 +166,7 @@ elif [ $1 == Uy ]; then
 
 #升级
 elif [ $1 == Ud ]; then
-  echo "$LI 默认使用$PM升级软件包"
+  echo -e "$LI 默认使用$PM升级软件包"
   $upgrade -y 1>"$output" 2>&1 | progress
   if [ $? == 0 ]; then
     echo -e "\033[47;30m $TI1升级完成 \033[0m"
