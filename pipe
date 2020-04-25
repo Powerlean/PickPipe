@@ -73,7 +73,7 @@ export PM="redhat"
 "rpm -i")
 export PM="synaptic"
 ;;
-"*")
+*)
 export PM="___"
 esac
 
