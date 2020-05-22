@@ -13,7 +13,7 @@ export output="/dev/null"
 
 #URL变量设定
 export database="https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/fast-up.sh"
-export log="https://raw.githubusercontent.com/EdgeS5352/PickPipe/master/update.log"
+export log="https://powerlean.top/blob/update.log"
 
 
 #命令变量设定
